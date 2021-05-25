@@ -6,6 +6,8 @@ from core import models
 
 admin.site.register(models.Tag)
 
+admin.site.register(models.Ingredient)
+
 
 @admin.register(models.User)
 class UserAdmin(BaseUserAdmin):

@@ -7,6 +7,8 @@ router = DefaultRouter()
 router.register('tags', views.TagViewSet)  # in autom crea
 #                                          url tipo recipe/tags/list ecc
 
+router.register('ingredients', views.IngredientViewSet)
+
 app_name = 'recipe'
 
 urlpatterns = [
