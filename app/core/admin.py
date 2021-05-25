@@ -4,6 +4,8 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext as _
 from core import models
 
+admin.site.register(models.Tag)
+
 
 @admin.register(models.User)
 class UserAdmin(BaseUserAdmin):
