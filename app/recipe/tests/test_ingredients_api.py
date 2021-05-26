@@ -27,17 +27,6 @@ def sample_ingredient(user, name='Cinnamon'):
     return Ingredient.objects.create(user=user, name=name)
 
 
-def sample_recipe(user, **params):
-    defaults = {
-        'title': 'Sample recipe',
-        'time_minutes': 10,
-        'price': 5.00,
-    }
-    defaults.update(params)
-
-    return Recipe.objects.create(user=user, **defaults)
-
-
 class PublicIngredientsApiTests(TestCase):
     """Test the publically available ingredients API"""
 
@@ -108,14 +97,4 @@ class PrivateIngredientsAPITests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_view_recipe_detail(self):
-        """Test viewing a recipe detail"""
-        recipe = sample_recipe(user=self.user)
-        recipe.tags.add(sample_tag(user=self.user))
-        recipe.ingredients.add(sample_ingredient(user=self.user))
 
-        url = detail_url(recipe.id)
-        res = self.client.get(url)
-
-        serializer = RecipeDetailSerializer(recipe)
-        self.assertEqual(res.data, serializer.data)

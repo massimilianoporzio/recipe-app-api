@@ -14,7 +14,7 @@ class TagSerializer(serializers.ModelSerializer):
 
 
 class IngredientSerializer(serializers.ModelSerializer):
-    """Erializer for ingredient object"""
+    """Serializer for ingredient object"""
 
     class Meta:
         model = Ingredient
