@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 
 from core.models import Ingredient, Tag, Recipe
 
-from recipe.serializers import IngredientSerializer
+from recipe.serializers import IngredientSerializer, RecipeDetailSerializer
 
 INGREDIENTS_URL = reverse('recipe:ingredient-list')
 
@@ -25,6 +25,7 @@ def sample_tag(user, name='Main course'):
 def sample_ingredient(user, name='Cinnamon'):
     """Create and return a sample ingredient"""
     return Ingredient.objects.create(user=user, name=name)
+
 
 def sample_recipe(user, **params):
     defaults = {
