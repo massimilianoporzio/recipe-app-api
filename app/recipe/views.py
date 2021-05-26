@@ -50,8 +50,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         """Return appropriate serializer class"""
         if self.action == 'retrieve':
-            return serializers.RecipeDetailSerializer #SE DETAIL USO IL SERIZLIZER DETAIL
-#                                                     SE NO QUELLO PER LA LIST (default)
+            return serializers.RecipeDetailSerializer  # SE DETAIL USO IL
+            # SERILIZER DETAIL
+        #     SE NO QUELLO PER LA LIST (default)
 
         return self.serializer_class
-
