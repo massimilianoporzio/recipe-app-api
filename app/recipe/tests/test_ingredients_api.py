@@ -5,9 +5,9 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import Ingredient, Tag, Recipe
+from core.models import Ingredient, Tag
 
-from recipe.serializers import IngredientSerializer, RecipeDetailSerializer
+from recipe.serializers import IngredientSerializer
 
 INGREDIENTS_URL = reverse('recipe:ingredient-list')
 
@@ -96,5 +96,3 @@ class PrivateIngredientsAPITests(TestCase):
         res = self.client.post(INGREDIENTS_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
-
-
